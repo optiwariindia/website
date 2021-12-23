@@ -1,0 +1,11 @@
+{
+    "name": "optiwariindia/website",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Om Tiwari",
+            "email": "optiwari.india@gmail.com"
+        }
+    ],
+    "require": {}
+}

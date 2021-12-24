@@ -1,5 +1,5 @@
 <?php
-namespace optiwariindia;
+namespace optiwariindia\website;
 
 class request{
     public static function get($key){

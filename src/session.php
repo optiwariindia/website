@@ -1,6 +1,6 @@
 <?php
 
-namespace optiwariindia;
+namespace optiwariindia\website;
 
 class session
 {

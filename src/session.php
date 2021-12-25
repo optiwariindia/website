@@ -15,6 +15,14 @@ class session
             self::$instance = new session();
         return true;
     }
+    public static function destroy(){
+        session_destroy();
+        unset(self::$instance);
+    }
+    public static function delete($var){
+        unset($_SESSION[$var]);
+        return true;
+    }
     public static function set($var,$value){
         $_SESSION[$var]=$value;
     }

@@ -36,4 +36,13 @@ class request{
     public static function useragent(){
         return $_SERVER['HTTP_USER_AGENT'];
     }
+    public static function url(){
+        $url=explode('/',self::texturl());
+        array_shift($url);
+        return $url;
+    }
+    public static function texturl(){
+        $url=explode('?',$_SERVER['REQUEST_URI']);
+        return $url[0];
+    }
 }

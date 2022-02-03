@@ -6,7 +6,8 @@ class config
 {
     private static $config;
 
-    private static function file(){
+    public static function file()
+    {
 
         $dir = constant("HOMEDIR");
         if ($dir == null)
@@ -14,7 +15,7 @@ class config
         $cfg = constant("CONFIG");
         if ($cfg == null)
             $cfg = "config.json";
-        return $dir.DIRECTORY_SEPARATOR.$cfg;
+        return $dir . DIRECTORY_SEPARATOR . $cfg;
     }
     public static function installed()
     {
@@ -23,7 +24,7 @@ class config
     public static function init()
     {
         if (!self::installed()) return false;
-        $temp=file_get_contents(self::file());
-        self::$config=json_decode($temp,1);
+        $temp = file_get_contents(self::file());
+        self::$config = json_decode($temp, 1);
     }
 }

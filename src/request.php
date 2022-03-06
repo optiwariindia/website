@@ -22,7 +22,10 @@ class request{
     public static function inputs(){
         $inputs=$_REQUEST;
         unset($inputs['action']);
-        return $inputs;
+        if(!empty($inputs)){
+            return $inputs;
+        }
+        return json_decode(file_get_contents('php://input'),true);
     }
     public static function client(){
         return $_SERVER['REMOTE_ADDR'];

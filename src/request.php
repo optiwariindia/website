@@ -13,11 +13,8 @@ class request{
         return false;
     }
     public static function action(){
-        if(!isset($_REQUEST['action'])){
-            return false;
-        }
-
-        return $_REQUEST['action'];
+        $inputs=self::inputs();
+        return $_REQUEST['action']??$inputs['action']??false;
     }
     public static function inputs(){
         $inputs=$_REQUEST;
@@ -25,7 +22,13 @@ class request{
         if(!empty($inputs)){
             return $inputs;
         }
-        return json_decode(file_get_contents('php://input'),true);
+        try {
+            $inputs=json_decode(file_get_contents('php://input'),true)??[];
+            //code...
+        } catch (\Throwable $th) {
+            $inputs=[];
+        }
+        return $inputs;
     }
     public static function client(){
         return $_SERVER['REMOTE_ADDR'];

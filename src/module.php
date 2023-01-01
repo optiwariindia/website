@@ -21,4 +21,10 @@ class module extends \optiwariindia\database
         echo json_encode($var);
         die;
     }
+    public static function error($data,$errorCode=403){
+        http_response_code($errorCode);
+        header("content-type: application/json");
+        echo json_encode($data);
+        die;
+    }
 }

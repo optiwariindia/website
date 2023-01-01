@@ -17,7 +17,7 @@ class module extends \optiwariindia\database
         self::$config=$config;
     }
     public static function trace($var){
-        header(" content-type: application/json");
+        header("content-type: application/json");
         echo json_encode($var);
         die;
     }

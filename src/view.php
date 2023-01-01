@@ -18,7 +18,8 @@ class view{
         self::$twig=$twig;
         return true;
     }
-    public static function render($file,$data){
+    public static function render($file,$data,$errorCode=""){
+        if($errorCode!="")http_response_code($errorCode);
         if(!isset(self::$twig))return false;
         echo self::$twig->render($file,$data);
         die;
